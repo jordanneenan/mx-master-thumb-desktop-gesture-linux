@@ -1,0 +1,12 @@
+[Unit]
+Description=Logitech MX Master 3 Gesture Daemon
+After=multi-user.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3 /usr/local/bin/mx_master_gesture_daemon.py
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
