@@ -30,6 +30,21 @@ This driver works around that by creating a virtual kernel trackpad (`uinput`) a
 
 The script will automatically install the python dependencies, copy the daemon to `/usr/local/bin`, and enable the background `systemd` service.
 
+## Configuring Buttons (Optional)
+
+This repository includes a sample `logid.cfg` configuration file to map other mouse buttons (Forward/Backward and the thumb rest gesture button) alongside the gesture daemon. Specifically, it maps the thumb rest button to open the **Activities Overview** (showing all windows and workspaces) on Ubuntu/GNOME.
+
+To install this button configuration:
+1. Ensure `logiops` is installed on your system.
+2. Copy `logid.cfg` to the system directory:
+   ```bash
+   sudo cp logid.cfg /etc/logid.cfg
+   ```
+3. Restart the `logid` service:
+   ```bash
+   sudo systemctl restart logid
+   ```
+
 ## Tuning the Sensitivity & Momentum
 You can easily adjust the "feel" of the scrolling.
 1. Open `/usr/local/bin/mx_master_gesture_daemon.py`
