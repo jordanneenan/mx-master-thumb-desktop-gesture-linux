@@ -1,6 +1,6 @@
 # MX Master Gesture Driver for Linux
 
-A lightweight python daemon that intercepts the horizontal thumb wheel on the Logitech MX Master 3 and translates it into smooth, 1-to-1 native multi-touch trackpad swipe gestures on Linux (Wayland/X11).
+A lightweight python daemon that intercepts the horizontal thumb wheel on Logitech MX Master series mice (MX Master 1, 2S, 3, etc.) and translates it into smooth, 1-to-1 native multi-touch trackpad swipe gestures on Linux (Wayland/X11).
 
 This brings the buttery smooth, momentum-based workspace switching experience found on Mac OS straight to your Linux desktop.
 
@@ -12,7 +12,7 @@ This driver works around that by creating a virtual kernel trackpad (`uinput`) a
 ## Prerequisites
 - Linux (Works on Ubuntu, Fedora, Arch, etc. Tested on Wayland with GNOME/KDE)
 - `python3-evdev`
-- A Logitech MX Master 3 (or similar mouse with an independent horizontal scroll wheel)
+- A Logitech MX Master series mouse (MX Master 1, 2S, 3, etc.) with an independent horizontal scroll wheel
 
 ## Installation
 
