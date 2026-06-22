@@ -9,20 +9,19 @@ from evdev import UInput, AbsInfo, ecodes as e
 PIXELS_PER_TICK = -280  # Lowered so it doesn't fly past 2 desktops on a fast flick
 SCROLL_TIMEOUT = 0.045  # 45ms timeout. The "Goldilocks" zone: long enough to link slow rolls together, short enough to preserve momentum when you stop.
 
-# 1. Find the Logitech MX Master 3 device
-target_name = "Logitech MX Master 3 for Mac"
+# 1. Find any Logitech MX Master device
 device = None
 
 for path in evdev.list_devices():
     dev = evdev.InputDevice(path)
-    if dev.name == target_name and e.EV_REL in dev.capabilities():
+    if "MX Master" in dev.name and e.EV_REL in dev.capabilities():
         caps = dev.capabilities()[e.EV_REL]
         if e.REL_HWHEEL in caps or e.REL_HWHEEL_HI_RES in caps:
             device = dev
             break
 
 if not device:
-    print(f"Error: Could not find '{target_name}' with HWHEEL capabilities.")
+    print("Error: Could not find any MX Master device with HWHEEL capabilities.")
     exit(1)
 
 print(f"Listening to device: {device.path} ({device.name})")
